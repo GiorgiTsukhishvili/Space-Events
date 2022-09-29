@@ -5,7 +5,7 @@ import { v4 } from "uuid";
 
 const eventList = ({ items }: { items: EventListProps[] }) => {
   return (
-    <ul className="w-[90%] max-w[40rem] my-[5rem] mx-auto">
+    <ul className="w-[90%] max-w-[60rem]  my-[5rem] mx-auto">
       {items.map((item) => (
         <EventItem
           key={v4()}

@@ -16,23 +16,29 @@ const EventItem = (props: OneEventProps) => {
   const exploreLink = `/events/${id}`;
 
   return (
-    <li className="sm:flex-row shadow-lg rounded-[8px] overflow-hidden bg-white m-[1rem] flex flex-col gap-[1rem] sm:pb-0 pb-3">
+    <li className="sm:flex-row shadow-xl rounded-[8px] overflow-hidden bg-white mx-[1rem] my-[3rem] flex flex-col sm:gap-[2rem] gap-[1rem] sm:pb-0 pb-3">
       <img
         src={`/${image}`}
         alt={title}
-        className="object-cover overflow-hidden w-full h-[10rem] rounded-[8px] sm:w-[40%] sm:h-[14rem]"
+        className="object-cover overflow-hidden w-full h-[15rem] rounded-[8px] sm:w-[40%] sm:h-[19rem]"
       />
       <div className="w-full py-o px-[1rem] sm:w-[60%] p-0 text-left">
         <div className="">
-          <h2 className="my-[0.5rem] sm:my-[1rem]">{title}</h2>
+          <h2 className="my-[0.5rem] sm:my-[1rem] sm:text-2xl text-xl">
+            {title}
+          </h2>
           <div className="flex gap-[0.5rem] items-center">
-            <time className="text-gray-600 font-bold">{humanReadableDate}</time>
+            <time className="text-gray-600 font-bold text-lg sm:text-xl">
+              {humanReadableDate}
+            </time>
           </div>
           <div className="flex gap-[0.5rem] items-center">
-            <h1 className="my-[0.5rem] text-gray-600">{formattedAdress}</h1>
+            <h1 className="my-[0.5rem] text-gray-600  text-lg sm:text-xl">
+              {formattedAdress}
+            </h1>
           </div>
         </div>
-        <div className="underline text-right text-lg">
+        <div className=" bg-purple-600 text-white px-4 py-1 rounded-[8px] transition-all duration-300 mt-3 hover:translate-y-[-5px] inline-block text-lg">
           <Link href={exploreLink}>Explore Event</Link>
         </div>
       </div>
