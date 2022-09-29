@@ -22,7 +22,7 @@ const EventDetail = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="bg-gradient-to-r pt-[60px] from-[#7F00FF] to-[#E100FF] block w-full text-center h-[200px] text-white text-5xl">
+      <h1 className="bg-gradient-to-r pt-[40px] from-[#7F00FF] to-[#E100FF] block w-full text-center h-[200px] text-white text-5xl">
         {event.title}
       </h1>
 
