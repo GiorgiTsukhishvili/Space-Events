@@ -1,32 +1,54 @@
 const DUMMY_EVENTS = [
   {
     id: "e1",
-    title: "Programming for everyone",
+    title: "Space for everyone",
     description:
-      "Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.",
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur exercitationem vero neque harum, accusamus facilis? Possimus ut eius error, odit consequuntur quo in aspernatur nostrum eveniet ipsum enim ullam unde?",
     location: "Somestreet 25, 12345 San Somewhereo",
     date: "2021-05-12",
-    image: "images/coding-event.avif",
+    image: "images/universe.avif",
     isFeatured: false,
   },
   {
     id: "e2",
-    title: "Networking for introverts",
+    title: "Universe for introverts",
     description:
-      "We know: Networking is no fun if you are an introvert person. That's why we came up with this event - it'll be so much easier. Promised!",
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur exercitationem vero neque harum, accusamus facilis? Possimus ut eius error, odit consequuntur quo in aspernatur nostrum eveniet ipsum enim ullam unde?",
     location: "New Wall Street 5, 98765 New Work",
     date: "2021-05-30",
-    image: "images/coding-event-1.avif",
+    image: "images/universe-1.avif",
     isFeatured: true,
   },
   {
     id: "e3",
-    title: "Networking for extroverts",
+    title: "Universe for extroverts",
     description:
-      "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur exercitationem vero neque harum, accusamus facilis? Possimus ut eius error, odit consequuntur quo in aspernatur nostrum eveniet ipsum enim ullam unde?",
     location: "My Street 12, 10115 Broke City",
     date: "2022-04-10",
-    image: "images/coding-event-3.avif",
+    image: "images/universe-3.avif",
+    isFeatured: true,
+  },
+
+  {
+    id: "e4",
+    title: "Universe for adventurers",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur exercitationem vero neque harum, accusamus facilis? Possimus ut eius error, odit consequuntur quo in aspernatur nostrum eveniet ipsum enim ullam unde?",
+    location: "New Wall Street 5, 98765 New Work",
+    date: "2021-05-30",
+    image: "images/universe-4.avif",
+    isFeatured: true,
+  },
+
+  {
+    id: "e5",
+    title: "Universe",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur exercitationem vero neque harum, accusamus facilis? Possimus ut eius error, odit consequuntur quo in aspernatur nostrum eveniet ipsum enim ullam unde?",
+    location: "New Wall Street 5, 98765 New Work",
+    date: "2021-05-30",
+    image: "images/universe-4.avif",
     isFeatured: true,
   },
 ];
