@@ -3,7 +3,7 @@ import { EventListProps } from "../interfaces/eventListInterface";
 import EventItem from "./EventItem";
 import { v4 } from "uuid";
 
-const eventList = ({ items }: { items: EventListProps[] }) => {
+const EventList = ({ items }: { items: EventListProps[] }) => {
   return (
     <ul className="w-[90%] max-w-[60rem]  my-[5rem] mx-auto">
       {items.map((item) => (
@@ -20,4 +20,4 @@ const eventList = ({ items }: { items: EventListProps[] }) => {
   );
 };
 
-export default eventList;
+export default EventList;
