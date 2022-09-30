@@ -20,3 +20,18 @@ export function getEventById(id: string) {
   const allEvents = getAllEvents();
   return allEvents.find((event: ApiUtilsInt) => event.id === id);
 }
+
+export function getFilteredEvents(dateFilter: { year: number; month: number }) {
+  const { year, month } = dateFilter;
+
+  const allEvents = getAllEvents();
+
+  let filteredEvents = allEvents.filter((event: ApiUtilsInt) => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
+    );
+  });
+
+  return filteredEvents;
+}

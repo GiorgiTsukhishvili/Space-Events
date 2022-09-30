@@ -1,4 +1,4 @@
-import { getFeaturedEvents } from "../utils/dummyData";
+import { getFeaturedEvents } from "../helpers/apiUtil";
 import EventList from "../components/events/eventList";
 import { HomeProps } from "../interfaces/homeInterface";
 
