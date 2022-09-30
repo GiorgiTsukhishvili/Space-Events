@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { getFeaturedEvents } from "../utils/dummyData";
 import EventList from "../components/events/eventList";
 import { HomeProps } from "../interfaces/homeInterface";

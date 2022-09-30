@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { getFilteredEvents } from "../../utils/dummyData";
-import EventList from "../../components/events/EventList";
+import EventList from "../../components/events/eventList";
 
 const FilteredEventsPage = () => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const FilteredEventsPage = () => {
     year: +filteredData[0],
     month: +filteredData[1],
   });
-  console.log(filteredEvents);
+
   if (filteredEvents.length === 0) {
     return <p className="text-center text-5xl mt-20">No Events Were Found</p>;
   }

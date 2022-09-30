@@ -1,13 +1,9 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { getEventById } from "../../utils/dummyData";
+import { ParsedUrlQuery } from "querystring";
+import { getEventById, getAllEvents } from "../../helpers/apiUtil";
+import { EventDetailProps } from "../../interfaces/eventDetailInterface";
 
-const EventDetail = () => {
-  const router = useRouter();
-
-  const eventId: string = router.query.eventId! as string;
-  const event = getEventById(eventId);
-
+const EventDetail = ({ event }: { event: EventDetailProps }) => {
   if (!event) {
     return <p>No event found!</p>;
   }
@@ -45,4 +41,25 @@ const EventDetail = () => {
   );
 };
 
+export const getStaticProps = async (context: { params?: ParsedUrlQuery }) => {
+  const eventId = context.params!.eventId as string;
+
+  const event = await getEventById(eventId);
+
+  return {
+    props: { event },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const events = getAllEvents();
+
+  const paths = events.map((event: EventDetailProps) => ({
+    params: { eventId: event.id },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+};
 export default EventDetail;
