@@ -6,7 +6,7 @@ const MainHeader = () => {
     <header className="w-full flex justify-between items-center py-[1rem] px-[10%] h-[3rem] bg-gradient-to-r  from-[#7F00FF] to-[#E100FF]">
       <div className="text-[1.5rem] text-white h-full flex justify-center items-center">
         <Link href="/" className="text-white">
-          NextEvents
+          Space Events
         </Link>
       </div>
       <nav>
