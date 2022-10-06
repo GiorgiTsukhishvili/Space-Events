@@ -4,6 +4,7 @@ import { getFilteredEvents } from "../../helpers/apiUtil";
 import EventList from "../../components/events/eventList";
 import { ParsedUrlQuery } from "querystring";
 import { FilteredEventsProps } from "../../interfaces/filteredEventsInterface";
+import Head from "next/head";
 
 const FilteredEventsPage = ({
   filteredEvents,
@@ -22,9 +23,15 @@ const FilteredEventsPage = ({
   }
 
   return (
-    <div>
-      <EventList items={filteredEvents} />
-    </div>
+    <>
+      <Head>
+        <title>Filtered Events</title>
+      </Head>
+
+      <div>
+        <EventList items={filteredEvents} />
+      </div>
+    </>
   );
 };
 

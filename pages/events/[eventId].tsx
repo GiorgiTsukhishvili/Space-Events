@@ -2,6 +2,7 @@ import React from "react";
 import { ParsedUrlQuery } from "querystring";
 import { getEventById, getAllEvents } from "../../helpers/apiUtil";
 import { EventDetailProps } from "../../interfaces/eventDetailInterface";
+import Head from "next/head";
 
 const EventDetail = ({ event }: { event: EventDetailProps }) => {
   if (!event) {
@@ -17,27 +18,33 @@ const EventDetail = ({ event }: { event: EventDetailProps }) => {
   const formattedAdress = event.location.replace(", ", "\n");
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="bg-gradient-to-r pt-[40px] from-[#7F00FF] to-[#E100FF] block w-full text-center h-[200px] text-white text-5xl">
-        {event.title}
-      </h1>
+    <>
+      <Head>
+        <title>{event.title}</title>
+      </Head>
 
-      <div className="flex items-center bg-gray-800 py-10 px-7 rounded-[8px] mt-[-45px] text-white">
-        <img
-          src={`/${event.image}`}
-          alt="Event"
-          className="rounded-full w-[250px] h-[250px] border-gray border-[5px]"
-        />
-        <div className="ml-3">
-          <h1 className="text-3xl mb-5">{humanReadableDate}</h1>
-          <h1 className="text-2xl">{formattedAdress}</h1>
+      <div className="flex flex-col items-center">
+        <h1 className="bg-gradient-to-r pt-[40px] from-[#7F00FF] to-[#E100FF] block w-full text-center h-[200px] text-white text-5xl">
+          {event.title}
+        </h1>
+
+        <div className="flex items-center bg-gray-800 py-10 px-7 rounded-[8px] mt-[-45px] text-white">
+          <img
+            src={`/${event.image}`}
+            alt="Event"
+            className="rounded-full w-[250px] h-[250px] border-gray border-[5px]"
+          />
+          <div className="ml-3">
+            <h1 className="text-3xl mb-5">{humanReadableDate}</h1>
+            <h1 className="text-2xl">{formattedAdress}</h1>
+          </div>
         </div>
-      </div>
 
-      <h1 className="text-center text-2xl w-[70%] mt-10">
-        {event.description}
-      </h1>
-    </div>
+        <h1 className="text-center text-2xl w-[70%] mt-10">
+          {event.description}
+        </h1>
+      </div>
+    </>
   );
 };
 

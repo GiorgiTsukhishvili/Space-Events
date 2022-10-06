@@ -4,6 +4,7 @@ import EventList from "../../components/events/eventList";
 import EventsSearch from "../../components/events/EventsSearch";
 import { useRouter } from "next/router";
 import { AllEventsProps } from "../../interfaces/allEventsInterface";
+import Head from "next/head";
 
 const Events = ({ events }: { events: AllEventsProps[] }) => {
   const router = useRouter();
@@ -15,6 +16,9 @@ const Events = ({ events }: { events: AllEventsProps[] }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Every Event</title>
+      </Head>
       <EventsSearch onSearch={findEventsHandler} />
       <EventList items={events} />
     </Fragment>
