@@ -1,21 +1,24 @@
-import classes from "./comment-list.module.css";
+export interface CommentListProps {
+  id: string;
+  email: string;
+  text: string;
+  name: string;
+}
 
-const CommentList = () => {
+const CommentList = ({ items }: { items: CommentListProps[] }) => {
   return (
     <ul className="flex flex-col gap-[1rem]">
-      {/* Render list of comments - fetched from API */}
-      <li className="text-left py-[0.5rem] border-b-[2px] border-gray-400">
-        <p>My comment is amazing!</p>
-        <div>
-          By <address>Maximilian</address>
-        </div>
-      </li>
-      <li className="text-left py-[0.5rem] border-b-[2px] border-gray-400">
-        <p>My comment is amazing!</p>
-        <div>
-          By <address>Maximilian</address>
-        </div>
-      </li>
+      {items.map((item) => (
+        <li
+          key={item.id}
+          className="text-left justify-between flex py-[0.5rem] border-b-[2px] border-gray-400"
+        >
+          <p>{item.text}</p>
+          <div className="flex gap-2">
+            By <address>{item.name}</address>
+          </div>
+        </li>
+      ))}
     </ul>
   );
 };

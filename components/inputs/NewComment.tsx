@@ -55,7 +55,7 @@ const NewComment = ({
             type="email"
             id="email"
             value={commentData.email}
-            className="focus:outline-none rounded-[8px] px-[5px] py-[2px]"
+            className="focus:outline-none text-black rounded-[8px] px-[5px] py-[2px]"
             onChange={(e) => changeData("email", e.target.value)}
           />
         </div>
@@ -65,7 +65,7 @@ const NewComment = ({
             type="text"
             id="name"
             value={commentData.name}
-            className="focus:outline-none rounded-[8px] px-[5px] py-[2px]"
+            className="focus:outline-none text-black rounded-[8px] px-[5px] py-[2px]"
             onChange={(e) => changeData("name", e.target.value)}
           />
         </div>
@@ -76,8 +76,8 @@ const NewComment = ({
           id="comment"
           rows={5}
           value={commentData.text}
-          className="focus:outline-none rounded-[8px] px-[5px] py-[2px]"
-          onChange={(e) => changeData("comment", e.target.value)}
+          className="focus:outline-none text-black rounded-[8px] px-[5px] py-[2px]"
+          onChange={(e) => changeData("text", e.target.value)}
         ></textarea>
       </div>
       {isInvalid && <p>Please enter a valid email address and comment!</p>}
