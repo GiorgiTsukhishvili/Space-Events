@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 interface CommentData {
   email: string;
@@ -6,17 +6,17 @@ interface CommentData {
   name: string;
 }
 
-const NewComment = () => {
+const NewComment = ({
+  onAddComment,
+}: {
+  onAddComment: (data: CommentData) => void;
+}) => {
   const [isInvalid, setIsInvalid] = useState(false);
   const [commentData, setCommentData] = useState<CommentData>({
     email: "",
     text: "",
     name: "",
   });
-
-  const emailInputRef = useRef();
-  const nameInputRef = useRef();
-  const commentInputRef = useRef();
 
   const sendCommentHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const NewComment = () => {
       return;
     }
 
-    // props.onAddComment(commentData);
+    onAddComment(commentData);
   };
 
   const changeData = (key: string, value: string) => {
@@ -44,7 +44,10 @@ const NewComment = () => {
   };
 
   return (
-    <form className="my-[2rem] text-white rounded-[8px]  bg-purple-600 shadow-md p-[1rem] px-6 ">
+    <form
+      onSubmit={sendCommentHandler}
+      className="my-[2rem] text-white rounded-[8px]  bg-purple-600 shadow-md p-[1rem] px-6 "
+    >
       <div className="flex gap-[1rem] flex-wrap">
         <div className="mb-[0.5rem] flex flex-col min-w-[10rem]">
           <label htmlFor="email">Your email</label>

@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { getEventById, getAllEvents } from "../../helpers/apiUtil";
 import { EventDetailProps } from "../../interfaces/eventDetailInterface";
 import Head from "next/head";
-import NewComment from "../../components/inputs/NewComment";
+import Comments from "../../components/inputs/Comments";
 
 const EventDetail = ({ event }: { event: EventDetailProps }) => {
   if (!event) {
@@ -40,10 +40,12 @@ const EventDetail = ({ event }: { event: EventDetailProps }) => {
             <h1 className="text-2xl">{formattedAdress}</h1>
           </div>
         </div>
-        <NewComment />
+
         <h1 className="text-center text-2xl w-[70%] mt-10">
           {event.description}
         </h1>
+
+        <Comments eventId={event.id} />
       </div>
     </>
   );
