@@ -24,7 +24,11 @@ const Comments = ({ eventId }: { eventId: string }) => {
     text: string;
     name: string;
   }) => {
-    // send data to API
+    fetch("/api/comments/" + eventId, {
+      method: "POST",
+      body: JSON.stringify(commentData),
+      headers: { "Content-Type": "application/json" },
+    });
   };
 
   return (

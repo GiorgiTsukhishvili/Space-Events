@@ -1,8 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const eventId = req.query.eventId;
+
+  const client = await MongoClient.connect(
+    "mongodb://localhost:27017/space-events"
+  );
 
   if (req.method === "POST") {
     const { email, name, text } = req.body;
@@ -20,25 +24,46 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       return;
     }
 
-    const newComment = {
-      id: new Date().toISOString(),
+    const newComment: {
+      name: string;
+      email: string;
+      text: string;
+      eventId: string | string[] | undefined;
+      id?: Object;
+    } = {
       name,
       email,
       text,
+      eventId,
     };
+
+    const db = client.db();
+
+    const result = await db.collection("comments").insertOne(newComment);
+
+    newComment.id = result.insertedId;
+
+    res
+      .status(201)
+      .json({ message: "Added to database", data: { newComment } });
   }
 
   if (req.method === "GET") {
-    const dummy = [
-      { id: "sad", email: "sad@dsad.ga", text: "sadsad", name: "sdad" },
-      { id: "sad2", email: "sad@dsad.ga", text: "sadsad", name: "sdad" },
-    ];
+    const db = client.db();
+
+    const documents = await db
+      .collection("comments")
+      .find()
+      .sort({ _id: -1 })
+      .toArray();
 
     res.status(200).json({
       message: "success",
-      data: { comments: dummy },
+      data: { comments: documents },
     });
   }
+
+  client.close();
 };
 
 export default handler;
