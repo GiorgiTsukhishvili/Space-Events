@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { MongoClient } from "mongodb";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     const userEmail = req.body.email;
 
@@ -8,6 +9,15 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       res.status(422).json({ message: "Invalid Email" });
       return;
     }
+
+    const client = await MongoClient.connect(
+      "mongodb://localhost:27017/space-events"
+    );
+    const db = client.db();
+
+    await db.collection("emails").insertOne({ email: userEmail });
+
+    client.close();
 
     res.status(201).json({ message: "Signed Up" });
   }

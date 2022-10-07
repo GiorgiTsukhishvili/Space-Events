@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { MongoClient } from "mongodb";
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const eventId = req.query.eventId;
